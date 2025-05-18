@@ -28,7 +28,7 @@ public class App {
             Connection connection = initialConnectionOpt.get();
             try {
                 Statement statement = connection.createStatement();
-                statement.execute("DELETE FROM test");
+                statement.execute("DELETE FROM quizdb.test");
                 String sql = String.format("INSERT INTO test (value) VALUES (%d);", testValue);
                 statement.execute(sql);
                 statement.close();
@@ -48,7 +48,7 @@ public class App {
                     try {
                         connection.setAutoCommit(false);
                         Statement stat = connection.createStatement();
-                        ResultSet resultSet = stat.executeQuery("SELECT * FROM test FOR UPDATE");
+                        ResultSet resultSet = stat.executeQuery("SELECT * FROM quizdb.test FOR UPDATE");
                         List<TestEntity> map = mapper.map(resultSet);
                         TestEntity testEntity = map.get(0);
                         String updateQuery = String.format(
