@@ -1,0 +1,1 @@
+INSERT INTO quizdb.quizzes (NAME) VALUES ('testEntity');
